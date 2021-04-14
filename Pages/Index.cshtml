@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Pobrane z pliku";
+}
+
+<h1> Pobrane z pliku</h1><br/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.CarList[0].Maker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.CarList[0].Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.CarList[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.CarList[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(Model => Model.CarList[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maker)
+                </td>
+                <td>
+                    <div class="card-img" style="background-image: url('@item.Image'); background-size:cover;background-position:center;background-repeat:no-repeat;height:180px;width:320px;"></div>
+                </td>
+                <td>
+                    <a href="@item.Url">@item.Url</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
